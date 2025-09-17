@@ -14,7 +14,7 @@ This project is a Bash based automated solution for:
    - Install Core utilities and security packages
    - Configure firewall rules (UFW)
    - Create Users amd manage permissions
-   - Optional Nginx setup for web development
+   - Optional Nginx/Apache setup for web development
    
    📡 Log Monitoring and Alerts
    - Monitor multiple log files simultaneously
