@@ -11,7 +11,7 @@ exec > >(tee -i /var/log/alert.log)
 exec 2>&1
 
 # Load Configuration Variables
-source ./config.conf
+source ../config/config.conf
 
 # REGEX pattern to search for in log files
 REGEX_PATTERN="$(IFS='|'; echo "${ERROR_PATTERNS[*]}")"

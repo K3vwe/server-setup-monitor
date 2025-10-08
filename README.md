@@ -1,19 +1,18 @@
 🚀 Automated Server Setup & Log Monitoring with Alerts
 
 ## 📌 Overview
-
 This project is a Bash based automated solution for:
  - Server Setup: Automatically install essential packages, configure system settings, firewall and security and prepare the linux server for deployment
- - Log File Monitoring and Alerts: Continuously watches log files for errors or patterns, and ssend real-time alerts via emails or slack
+ - Log File Monitoring and Alerts: Continuously watches log files for errors or patterns, and send real-time alerts via emails or slack
 
 ## Scope
- This is a lightweight Devops project that demostrate Infrastructure automation, observability and alerting - critical skills for modern system administration and DevOps engineering.
+ This is a lightweight Devops project that demonstrate Infrastructure automation, observability and alerting - critical skills for modern system administration and DevOps engineering.
 
 ✨ Features
   🔧 Automated Server Setup
    - Install Core utilities and security packages
    - Configure firewall rules (UFW)
-   - Create Users amd manage permissions
+   - Create Users and manage permissions
    - Optional Nginx/Apache setup for web development
    
    📡 Log Monitoring and Alerts
@@ -38,19 +37,18 @@ This project is a Bash based automated solution for:
 
 📥 Installation
  - Clone the repository
-  git clone https://github.com/yourusername/server-setup-monitor.git
-  cd server-setup-monitor
-
+  ``` git clone  https://github.com/yourusername/server-setup-monitor.git ```
+  ``` cd server-setup-monitor ```
   - Make the script executable 
-    chmod +x setup_server.sh monitor_logs.sh
+    ``` chmod +x setup_server.sh monitor_logs.sh ```
 
   - Run the setup script
-    ./setup_server.sh
+    ``` ./setup_server.sh ```
   This installs dependencies, sets up firewall rules, creates users, and prepares the server environment.
 
 ▶️ Usage 
  - Start Monitoring Logs
-  Edit config.conf file to define:
+  Edit ./config.conf file to define:
   - log files to monitor
   - Error pattern to catch 
   - Notification Method (Email/Slack)

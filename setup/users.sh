@@ -10,6 +10,9 @@
 # Exit immediately if a command fails
 set -e
 
+# Load Configuration Variables
+source ../config/config.conf
+
 # Include logs
 exec > >(tee -i /var/log/users.log)
 exec 2>&1

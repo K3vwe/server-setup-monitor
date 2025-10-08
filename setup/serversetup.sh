@@ -8,7 +8,7 @@ exec > >(tee -i /var/log/setup.log)
 exec 2>&1
 
 # Load Configuration Variables
-source ./config.conf
+source ../config/config.conf
 
 # Update and Upgrade existing system services on the server
 apt update && apt upgrade -y
