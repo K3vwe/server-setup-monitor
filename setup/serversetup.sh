@@ -11,12 +11,12 @@ exec 2>&1
 source ../config/config.conf
 
 # Update and Upgrade existing system services on the server
-apt update && apt upgrade -y
+apt update && apt upgrade -y && apt autoremove -y
 echo
 
 # Install Core System Packages and Utilities
 echo ">>> Installing System Essentials......."
-apt install -y build-essential curl wget git ufw unzip tar openssh-server
+apt install -y build-essential curl wget git ufw unzip tar openssh-server mailutils
 echo ">>> Core system package installation successful........" 
 echo
 
@@ -52,12 +52,28 @@ if [ -f /etc/ssh/sshd_config ]; then
     cp /etc/ssh/sshd_config /etc/ssh/sshd_config.original
     chmod a-w /etc/ssh/sshd_config.original
 fi;
+
 # Testing SSH for syntax errors
 echo ">>> Testing SSH for syntax errors"
 sshd -t -f /etc/ssh/sshd_config
 systemctl enable ssh
 systemctl start ssh
 echo 
+
+# Configure Mailutils
+cat >> ~/.mailrc << EOF
+# Gmail SMTP settings for alert script
+set smtp-use-starttls
+set ssl-verify=ignore
+set smtp=smtp://smtp.gmail.com:587
+set smtp-auth=login
+set smtp-auth-user=your_email@gmail.com
+set smtp-auth-password=YOUR_APP_PASSWORD
+set from="your_email@gmail.com"
+EOF 
+
+# Change ownership of ~/.mailrc to the user
+chmod 600 ~/.mailrc
 
 # Configure Fail2ban for Intrusion detection
 echo ">>> Configure Fail2ban to detect and block intrusion"
